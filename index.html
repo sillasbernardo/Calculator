@@ -17,37 +17,37 @@
                 <input type="text" name="number" id="numberbox">
             </div>
             <div class="top-menu">
-                <button onclick="specialClicks('#Clear', ' ')" id="Clear">C</button>
-                <button onclick="specialClicks('#delete', ' ')" id="delete">Delete</button>
+                <button onclick="erase('clearAll')" id="Clear">C</button>
+                <button onclick="erase('delete')" id="delete">Delete</button>
             </div>
             <div class="numbers-container">
                 <div id="one-three">
-                    <button onclick="clickButtons(1)" id="One">1</button>
-                    <button onclick="clickButtons(2)" id="Two">2</button>
-                    <button onclick="clickButtons(3)" id="Three">3</button>
+                    <button onclick="numIsClicked(1)" id="One">1</button>
+                    <button onclick="numIsClicked(2)" id="Two">2</button>
+                    <button onclick="numIsClicked(3)" id="Three">3</button>
                 </div>
                 <div id="four-six">
-                    <button onclick="clickButtons(4)" id="Four">4</button>
-                    <button onclick="clickButtons(5)" id="Five">5</button>
-                    <button onclick="clickButtons(6)" id="Six">6</button>
+                    <button onclick="numIsClicked(4)" id="Four">4</button>
+                    <button onclick="numIsClicked(5)" id="Five">5</button>
+                    <button onclick="numIsClicked(6)" id="Six">6</button>
                 </div>
                 <div id="seven-nine">
-                    <button onclick="clickButtons(7)" id="Seven">7</button>
-                    <button onclick="clickButtons(8)" id="Eight">8</button>
-                    <button onclick="clickButtons(9)" id="Nine">9</button>
+                    <button onclick="numIsClicked(7)" id="Seven">7</button>
+                    <button onclick="numIsClicked(8)" id="Eight">8</button>
+                    <button onclick="numIsClicked(9)" id="Nine">9</button>
                 </div>
                 <div class="bottom-menu">
                     <button id="n">N</button>
-                    <button onclick="clickButtons(0)" id="zero">0</button>
-                    <button onclick="clickButtons('.')" id="dot">.</button>
+                    <button onclick="numIsClicked(0)" id="zero">0</button>
+                    <button onclick="numIsClicked('.')" id="dot">.</button>
                 </div>
             </div>
             <div class="math">
-                <button onclick="clickSigns('/')" id="divided">/</button>
-                <button onclick="clickSigns('x')" id="multiplied">X</button>
-                <button onclick="clickSigns('-')" id="minus">-</button>
-                <button onclick="clickSigns('+')" id="sum">+</button>
-                <button onclick="clickButtons('#equal', '')" id="equal">=</button>
+                <button onclick="signIsClicked('/')" id="divided">/</button>
+                <button onclick="signIsClicked('*')" id="multiplied">X</button>
+                <button onclick="signIsClicked('-')" id="minus">-</button>
+                <button onclick="signIsClicked('+')" id="sum">+</button>
+                <button onclick="equalIsClicked()" id="equal">=</button>
             </div>
         </div>
     </div>    

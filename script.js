@@ -1,50 +1,71 @@
-var textInput = "#numberbox"
-var num1, num2
+var numberbox = "#numberbox"
+var number1
+var number2
+var equal
+var sign
+var onCleanNumberBox = false
 
-$(document).ready(function(){
-
-    $(textInput).click(function()
-    {
-        $(this).attr("readonly", "readonly");
-    });
-})
-
-
-function clickSigns(typeValue){
-
-    $(document).ready(function(){
-        if (sign === "+" || sign === "-" || sign === "/" || sign === "x"){
-            $(textInput).val($(textInput).val().slice(0, -1))
-            $(textInput).val($(textInput).val() + typeValue)
-        }else{
-            $(textInput).val($(textInput).val() + typeValue)
-            sign = typeValue
+function numIsClicked(inputValue){
+    if (number1 == undefined){
+        $(numberbox).val($(numberbox).val() + inputValue)
+        console.log(number1)
+    }else{
+        if (onCleanNumberBox == true){
+            $(numberbox).val('')
+            onCleanNumberBox = false
         }
-
-    })
+        $(numberbox).val($(numberbox).val() + inputValue)
+    }
 }
 
-
-function clickButtons (typeValue){
-    $(document).ready(function(){
-        $(textInput).val($(textInput).val() + typeValue)       
-
-        if (clickSigns()){
-            num1 = $(textInput).val($(textInput).val().slice(0, -1))}
-
-    })
+function signIsClicked(inputValue){
+    if(sign == undefined){
+        number1 = parseFloat($(numberbox).val())
+        $(numberbox).val(inputValue)
+        sign = inputValue
+        onCleanNumberBox = true
+    }else{}
 }
 
-
-function specialClicks(typeId, typeValue){
-    if (typeId === "#Clear"){
-        $(textInput).val(typeValue);
+function erase(inputId){
+    if (inputId === "clearAll"){
+        $(numberbox).val('')
+        number1 = undefined
+        number2 = undefined
+        sign = undefined
+        equal = undefined
+    } else if (inputId === "delete"){
+        $(numberbox).val($(numberbox).val().slice(0, -1))
     }
+}
 
-    if (typeId === "#delete"){
-        $(textInput).val($(textInput).val().slice(0, -1));
+function equalIsClicked(){
+    number2 = parseFloat($(numberbox).val())
+
+    if (sign === "+"){
+        equal = number1 + number2
+        $(numberbox).val('')
+        $(numberbox).val(equal)
+        number1 = equal
+        sign = undefined
+
+    }else if(sign === "-"){
+        equal = number1 - number2
+        $(numberbox).val('')
+        $(numberbox).val(equal)
+        number1 = equal
+        sign = undefined
+    }else if(sign === "/"){
+        equal = number1 / number2            
+        $(numberbox).val('')
+        $(numberbox).val(equal)
+        number1 = equal
+        sign = undefined
+    }else if(sign === "*"){
+        equal = number1 * number2            
+        $(numberbox).val('')
+        $(numberbox).val(equal)
+        number1 = equal
+        sign = undefined
     }
-
-    if (typeId === "#equals"){
-    };
 }
